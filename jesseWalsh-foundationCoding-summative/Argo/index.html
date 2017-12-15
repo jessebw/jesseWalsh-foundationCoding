@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Argo - Travel Impressions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/redCrossMarker.png" />
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!-- Mapbox css -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css' rel='stylesheet' />
+
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.css' type='text/css' />
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- my style sheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div id="wrapper">
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+<!--     <div class="modal-header">
+      <span class="close">&times;</span>
+    </div> -->
+    <span class="close">&times;</span>
+    <div class="modal-body">
+      <h2>ARGO</h2>
+      <p>Hiring a car?</p>
+      <p>Get a travel route, distance and fuel cost estimates.</p>
+      <div id="hireImg"><img src="img/cars/motor.png" alt=""><img src="img/cars/smlCar2.png" alt=""><img src="img/cars/lrgCar1.png" alt=""><img src="img/cars/motorHome.png" alt=""></div>
+      <p id="greek">In Greek mythology some say that the Argo was the first ship to sail the seas.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- custom modal -->
+  <div id="errorMask">
+    <div id="errorModal">
+      <span class="closeError">&times;</span>
+      <div id="errorMsg"><p>Please select a vehicle.</p></div>
+    </div>
+  </div>
+
+  <div id="errorMaskDays">
+    <div id="errorModalDays">
+      <span class="closeErrorDays">&times;</span>
+      <div id="errorMsgDays"><p>Please select days required.</p></div>
+    </div>
+  </div>
+
+<!-- <button id="clickMe">click</button> -->
+  <div class="containerTop">
+
+    <!-- start top left div container -->
+    <div id="containerTopLeft" class="topLeftDiv">
+
+      <!-- Start formInputDiv -->
+      <div id="formInputDiv">
+
+        <div id="logoDiv"></div>
+
+        <!-- Start form -->
+        <div id="formA">
+
+          <form method="post" id="aForm" data-parsley-validate="">
+
+            <!-- Start drop down vehicle select -->
+            <fieldset>
+              <div id="info" class="button"><p>i</p></div>
+              <select id="vehicleSelect" class="custom-select formFont mobileSize" tabindex="1">
+                <option value="" disabled selected>Vehicle Select</option>
+                <option value="MotorCycle">Motorcycle (1 person)</option>
+                <option value="Small Car">Small Car (1-2 people)</option>
+                <option value="Large Car">Large Car (1-5 people)</option>
+                <option value="Motor Home">Motor Home (2-6 people)</option>
+              </select>
+
+              <select class="custom-select formFont days" id="inlineFormCustomSelect" tabindex="2">
+                <option value="" disabled selected>Days</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+              </select>
+              
+              <div class="form-group" id="dir">
+              <!-- custom select directions -->
+              <div class="form-group" id="originD">
+                <input type="text" class="form-control formFont mobileSize" id="origin" placeholder="Origin:" tabindex="3" name="origin" 
+               required data-parsley-type="text">
+              </div>
+              <div class="form-group" id="destinationD">
+                <input type="text" class="form-control formFont mobileSize" id="destination" placeholder="Destination:" tabindex="4" name="destination"  required data-parsley-type="text"><ul class="suggestions"></ul>
+              </div>
+              <button id="submit" class="btn" type="submit" value="validate">Submit</button>
+              <!-- custom select directions end-->
+              </div>
+            </fieldset>
+        <!-- End form -->
+          </form>
+
+        </div>
+      <!-- End form inPutDiv     -->
+      </div>
+
+    <!-- End of top left div container -->
+    </div>
+
+  <!-- Start of top right div container -->
+    <div id="containerTopRight" class="topRightDiv">
+      <div id="formOutputDiv">
+        <div id="getFormEl">
+          <h3>Your Trip</h3>
+          <ul id="tripEl">
+            <li id="vehicleEl"></li>
+            <li id="dayCostEl"></li>
+            <li id="litresEl"></li>
+          </ul>
+        <hr>
+        <ul id="subTotalEl">
+          <li id="dayTotalEl"></li>
+          <li id="fuelTotalEl"></li>
+        </ul>
+        <hr>
+        <p id="totalEl"></p>
+
+        </div>
+      </div>
+    </div>  
+  <!-- End of top right div container -->
+  </div>
+
+  <!-- mapbox container -->
+  <div class="containerBtm">
+    <div id='map'></div>
+  </div>
+</div>
+
+<!-- jquery -->
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+<!-- mapbox -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.1/mapbox-gl-directions.js'></script>
+
+<!-- bootstrap -->
+<script 
+src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+<script 
+src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+<!-- parsley validation -->
+<script src="parsley.js"></script>
+<!-- my json object -->
+<script src="assets/transData.js"></script>
+<!-- custom script -->
+<script src="js/app.js"></script>
+
+</body>
+</html>

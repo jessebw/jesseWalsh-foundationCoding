@@ -1,0 +1,547 @@
+body {
+        margin: 0;
+        padding: 0;
+      }
+
+/*on load modal*/
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: red;
+    font-size: 5em;
+    font-weight: bold;
+    margin-left: 0.3em;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body {
+  padding: 2px 16px;
+
+}
+
+.modal-body{
+  text-align: center;
+}
+
+#greek {
+  font-size: .8em;
+  margin-bottom: 100px;
+}
+
+#hireImg > img{
+  margin: .5em 5em;
+}
+
+/*Error modals*/
+
+/*vehicle error msg*/
+#errorModal {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.closeError:hover,
+.closeError:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.closeError {
+    color: red;
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 0.3em;
+}
+
+#errorMsg{
+  text-align:  center;
+  padding-bottom: 1.2em;
+}
+
+#errorMask{
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+/*days error msg*/
+#errorModalDays {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+.closeErrorDays:hover,
+.closeErrorDays:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.closeErrorDays {
+    color: red;
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 0.3em;
+}
+
+#errorMsgDays{
+  text-align:  center;
+  padding-bottom: 1.2em;
+}
+
+#errorMaskDays{
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+/*info element*/
+#infoEl{
+  display: none;
+  z-index: 1;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+}
+
+#closeInfo > img{
+  right: 0;
+  width: 2em;*/
+  height: 2em;
+  float: right;
+  margin: 2em;
+}
+
+#infoText{
+  height: 100vh;
+  width: 40vw;
+  margin-top: 15em;
+  margin-left: 40%;
+  margin-right:auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#infoText > h2{
+  color: #EA252D;
+}
+
+#infoText > p > img{
+  margin-right: 2em;
+}
+     
+/*mapbox starts*/
+
+#map {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50vh;
+}
+
+.marker {
+  background-image: url('../img/redCrossMarker.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+      
+/*turn off the native mb search control*/
+.mapboxgl-control-container{
+  display: none;
+}
+
+/*mapbox ends*/
+
+.containerTop{
+  top: 0;
+  display: grid;
+  width: 100vw;
+  height: 50vh;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  grid-template-areas: 
+  "a b"
+  "a b";
+  grid-row-gap: 0;
+  overflow-y: auto;
+}
+
+.containerBtm{
+  bottom: 0;
+  width: 100vw;
+  height: 50vh
+}
+
+#containerTopLeft{
+  grid-area: a;
+  width: 100%;
+  height: 100%;
+}
+
+#containerTopRight{
+  grid-area: b;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+
+.topRightDiv{
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 25em 25em;
+}
+
+/*form starts*/
+
+#formOutputDiv{
+  width: 90%;
+  height: 90%;
+  border-left: 2px solid #566573;
+  border-top: none;
+  margin-left: 0;
+  margin-top: .7em;
+  margin-bottom: .7em;
+  padding-left: 5em
+}
+      
+#getFormEl{
+  transition: opacity 5s ease-out;
+  display: none;
+  padding-top: 2em;
+  width: 100%;
+  height: 100%;
+}
+
+h3{
+  margin-bottom: 1em;
+}
+
+ul{
+  display: inline;
+  list-style-type: none;
+}
+
+li{
+  float: left;
+  margin-right: 5em;
+}
+
+hr{
+  margin:2em 0 2em 0;
+}
+
+
+
+#logoDiv{
+  background-image: url("../img/argoLogo.png");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 10em;
+  width: auto;
+  height: 50px;
+  margin-top: 1em;
+  margin-left: 1.5em;
+}
+
+#formA{
+  width: 80%;
+  height: auto;
+  float: left;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+}
+
+.formFont{
+  letter-spacing: 2px;
+  text-align: left;
+}
+
+#vehicleSelect{
+  margin: 1em 0 1em 4em;
+  width: 20em;
+}
+
+.custom-select{
+  vertical-align: 0;
+  margin-bottom: 0;
+  margin-left: 3em;
+}
+  
+/*day select*/
+.days{
+  margin-bottom: 0!important;
+  width: 10em;
+  margin-left: 1em;
+}
+
+.form-control{
+  width: 31.3em;
+  margin-left: 4em;
+}
+
+#submit{
+  width: 5em;
+  height: 5em;
+  background-color: #F918A0;
+  border-radius: 50%;
+  margin-right: -5em;
+  margin-top: -6em;
+  margin-bottom: 1em;
+  float: right;
+  -webkit-appearance: none;
+}
+
+.form-group > ul{
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#info > p{
+  margin-top: .001em;
+  margin-left: .56em;
+  /*position: absolute;*/
+  color: #A5A5A5;
+}
+
+#info{
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #fff;
+  border: 1px solid #A5A5A5;
+  border-radius: 50%;
+  margin-left: 1.5em;
+  margin-top: 1em;
+}
+
+
+/*info button*/
+
+#info:focus, #info:active:focus, #info.active:focus {
+  outline: 0 none;
+}
+
+#info {
+  background: #fff;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+#info:hover, #info:focus, #info:active, #info.active {
+  background: #F4EEEE;
+  box-shadow: none;
+}
+
+#info:active, #info.active {
+  background: #F4EEEE;
+  box-shadow: none;
+}
+
+/*search button*/
+
+#submit:focus, #submit:active:focus, #submit.active:focus {
+  outline: 0 none;
+}
+
+#submit {
+  background: #F918A0;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+#submit:hover, #submit:focus, #submit:active, #submit.active {
+  background: #F346AF;
+  box-shadow: none;
+}
+
+#submit:active, #submit.active {
+  background: #C1358A;
+  box-shadow: none;
+}
+/*form ends*/
+
+
+/*MEDIA QUERIES at breakpoint 1500px*/
+@media only screen and (max-width : 1500px) {
+
+.containerTop{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  grid-template-areas: 
+  "a a"
+  "b b";
+  overflow-y: auto;
+}
+
+.topRightDiv{
+  background-repeat: no-repeat;
+  background-size: 12em;
+  overflow-y: auto;
+}
+
+/*form starts*/
+
+#formOutputDiv{
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: .7em;
+  margin-right: .7em;
+  border-left: none;
+  border-top: 2px solid #566573;
+}
+
+#logoDiv{
+  background-image: url("../img/argoLogo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10em;
+  width: 100%;
+  height: 50px;
+  margin-top: 1em;
+  margin-left: auto;
+}
+
+#formA{
+  width: 100vw;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+}
+
+#info{
+  margin-left: 30vw;
+  margin-bottom: 1em;
+}
+
+
+#vehicleSelect{
+  margin-left: auto;
+  margin-right: auto;
+  width: 16em;
+  display: block;
+}
+
+.form-control{
+  width: 16em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mobileSize{
+  width: 16em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.custom-select{
+  vertical-align: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.days{
+  display: block;
+  margin-bottom: 1em !important;
+  width: 16em;
+}
+
+#submit{
+  float: right;
+  margin: 1em 25% 2em 65%;
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}

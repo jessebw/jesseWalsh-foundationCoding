@@ -1,0 +1,58 @@
+[
+	{
+		"id": 1,
+		"name":"Motorcycle",
+		"litre100km":"3.7",
+		"pax":"1",
+		"paxMin":"1",
+		"paxMax":"1",
+		"hire":"109",
+		"minDay": "1",
+		"maxDay": "5",
+		"fuel": "2.12",
+		"fuel100Km": "7.844"
+
+	},
+	{
+		"id": 2,
+		"name":"Small Car",
+		"litre100km":"8.5",
+		"pax":"1-2",
+		"paxMin":"1",
+		"paxMax":"2",
+		"hire":"129",
+		"minDay": "1",
+		"maxDay": "5",
+		"fuel": "2.12",
+		"fuel100Km": "18.02"
+
+	},
+	{
+		"id": 3,
+		"name":"Large Car",
+		"litre100km":"9.7",
+		"pax":"2-5",
+		"paxMin":"2",
+		"paxMax":"5",
+		"hire":"144",
+		"minDay": "3",
+		"maxDay": "10",
+		"fuel": "2.12",
+		"fuel100Km": "20.56"
+
+	},
+	{
+		"id": 4,
+		"name":"Motor home",
+		"litre100km":"17",
+		"pax":"2-6",
+		"paxMin":"2",
+		"paxMax":"6",
+		"hire":"200",
+		"minDay": "2",
+		"maxDay": "15",
+		"fuel": "2.12",
+		"fuel100Km": "36.04"
+
+	}
+]
