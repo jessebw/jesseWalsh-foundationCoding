@@ -246,8 +246,6 @@ function daysError(){
         case "MotorCycle":
           motorcycle();
           motorDays();
-          console.log(selectElementA);
-          console.log(motorcycle);
           break;
         case "Small Car":
           smallCar();
